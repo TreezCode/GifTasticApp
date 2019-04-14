@@ -1,0 +1,156 @@
+
+/* Main Container */
+/* ===================================================== */
+.container {
+    width: 960px;
+    margin: 1em auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1em;
+}
+
+/* Layout / Positioning */
+/* ===================================================== */
+.headerWrap,
+.gamesBtnWrap,
+.gameGifWrap {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: center;
+}
+
+.addGameWrap {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    justify-self: center;
+}
+
+/* Header Styles */
+/* ===================================================== */
+.headerWrap h1 {
+    font-size: 2.2em;
+    font-family: 'Righteous', cursive;
+    padding: 0.5em 0;
+}
+
+.headerWrap h2 {
+    font-size: 1.4em;
+    font-family: 'Karla', sans-serif;
+    padding: 0.5em 0;
+}
+
+/* Add Game Form Stlyes */
+/* ===================================================== */
+#addGameForm {
+    text-align: center;
+}
+
+#addGameInput {
+    text-align: center;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    box-shadow: 0 0 7px 3px #333 inset;
+    border: none;
+}
+
+#addGameSubmit {
+    border-radius: 10px;
+    font-family: 'Karla', sans-serif;
+}
+
+/* Game Buttons Styles */
+/* ===================================================== */
+#gamesBtn {
+    padding: 0.5em 0;
+}
+
+/* Game Gifs Styles */
+/* ===================================================== */
+#gameGif {
+    padding: 0.5em 0;
+}
+
+/* Animated Gradient Background */
+/* ===================================================== */
+body {
+    width: 100wh;
+    height: 90vh;
+    color: #fff;
+    background: linear-gradient(-45deg, rgb(53, 53, 53), rgb(0, 0, 0));
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 24s ease infinite;
+    -moz-animation: Gradient 24s ease infinite;
+    animation: Gradient 24s ease infinite;
+}
+
+@keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-webkit-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+@-moz-keyframes Gradient {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+/* Neon Glow Header */
+/* ===================================================== */
+.glow {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00f514, 0 0 40px #00f514, 0 0 50px #00f514, 0 0 60px #00f514, 0 0 70px #00f514;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #00f514, 0 0 40px #00f514, 0 0 50px #00f514, 0 0 60px #00f514, 0 0 70px #00f514, 0 0 80px #00f514;
+    }
+}
+
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00f514, 0 0 40px #00f514, 0 0 50px #00f514, 0 0 60px #00f514, 0 0 70px #00f514;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #00f514, 0 0 40px #00f514, 0 0 50px #00f514, 0 0 60px #00f514, 0 0 70px #00f514, 0 0 80px #00f514;
+    }
+}
