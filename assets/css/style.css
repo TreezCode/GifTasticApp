@@ -18,7 +18,7 @@ body {
 /* Layout / Positioning */
 /* ===================================================== */
 .headerWrap,
-.gamesBtnWrap {
+.gameBtnWrap {
     grid-column-start: 1;
     grid-column-end: 4;
     text-align: center;
@@ -89,7 +89,7 @@ body {
 
 /* Game Buttons Styles */
 /* ===================================================== */
-#gamesBtn {
+#gameBtns {
     padding: 0.5em 0;
 }
 

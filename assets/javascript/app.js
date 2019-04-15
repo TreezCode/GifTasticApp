@@ -23,7 +23,7 @@ var topics = [
     "World of Warcraft",
 ]
 
-// Function to create buttons in HTML for each game in the "topics" array
+// Function to create buttons in HTML for each item in the "topics" array
 var renderButtons = () => {
     // Iterate through array. 
     for (var i = 0; i < topics.length; i++) {
@@ -34,11 +34,11 @@ var renderButtons = () => {
         topicsBtn.attr("data-title", topics[i]);
         // Diplay the button text with the value of topics[i]
         topicsBtn.html(topics[i]);
-        // Render buttons to html by appending to #gamesBtn.
-        $("#gamesBtns").append(topicsBtn);
+        // Render buttons to html by appending to #gameBtns.
+        $("#gameBtns").append(topicsBtn);
     }
 }
-// Funtion to add game button by taking the value of users input when submit is clicked
+// Function to add game button by taking the value of users input when submit is clicked
 var addGame = () => {
     $("#addGameBtn").on("click", function(event) {
         event.preventDefault();
@@ -53,7 +53,7 @@ var addGame = () => {
             addedBtn.attr("data-title", addedGame);
             addedBtn.addClass("addedBtn");
             addedBtn.addClass("gameBtn");
-            $("#gamesBtns").append(addedBtn);
+            $("#gameBtns").append(addedBtn);
         }
         $("#addGameInput").val("");
     })
