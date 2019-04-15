@@ -47,7 +47,7 @@ body {
     font-size: 1.4em;
     font-family: 'Karla', sans-serif;
     letter-spacing: 2px;
-    padding: 0.5em 0;
+    padding-top: 0.5em;
 }
 
 /* Add Game Stlyes */
@@ -182,9 +182,11 @@ body {
         grid-gap: 0.5em;
     }
 
-    .headerWrap h1,
-    .headerWrap h2 {
+    .headerWrap h1 {
         padding: 0.25em 0;
+    }
+    .headerWrap h2 {
+        padding-top: 0.25em;
     }
 
     #addGameBtn {
