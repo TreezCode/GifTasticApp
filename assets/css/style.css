@@ -135,6 +135,9 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 15px -5px #00f514;
 }
+.result:hover {
+    cursor: pointer;
+}
 
 .ratingDiv {
     font-family: 'Karla', sans-serif;
