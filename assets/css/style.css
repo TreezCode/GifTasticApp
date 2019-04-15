@@ -50,7 +50,7 @@ body {
     padding: 0.5em 0;
 }
 
-/* Add Game Form Stlyes */
+/* Add Game Stlyes */
 /* ===================================================== */
 #addGameForm {
     text-align: center;
@@ -74,9 +74,9 @@ body {
     color:  #a3ffab;
     padding: 0.75em;
     margin-top: 1em;
-    border: none;
+    border: 0.5px solid rgb(48, 48, 48);
     border-radius: 20px;
-    box-shadow: 0 0 10px -2px #00f514;
+    box-shadow: 0 0 15px 0px #00f514;
     transition: all 0.25s;
 }
 
@@ -113,7 +113,7 @@ body {
     cursor: pointer;
 }
 
-/* Game Gifs Styles */
+/* Game GIF Styles */
 /* ===================================================== */
 .selectedWrap {
     margin: auto;
@@ -130,8 +130,8 @@ body {
 }
 
 .result {
-    width: 300px;
-    height: 200px;
+    width: 400px;
+    height: 250px;
     border-radius: 10px;
     box-shadow: 0 0 15px -5px #00f514;
 }
@@ -171,5 +171,82 @@ body {
 
     to {
         text-shadow: 0 0 20px #fff, 0 0 30px #00f514, 0 0 40px #00f514, 0 0 50px #00f514, 0 0 60px #00f514, 0 0 70px #00f514, 0 0 80px #00f514;
+    }
+}
+
+/* Meadia Queries */
+/* ===================================================== */
+@media screen and (max-width: 980px) {
+    .container {
+        margin: 0.5em auto;
+        grid-gap: 0.5em;
+    }
+
+    .headerWrap h1,
+    .headerWrap h2 {
+        padding: 0.25em 0;
+    }
+
+    #addGameBtn {
+        margin-top: 0.5em;
+    }
+
+    .gameBtn {
+        margin: 0.2em;
+        padding: 0.4em;
+    }
+
+    #gameGif {
+        padding: 0;
+    }
+    
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        margin: 0.25em auto;
+    }
+    .headerWrap h1,
+    .headerWrap h2 {
+        padding: 0.2em 0.1em;
+    }
+    #addGameBtn {
+        padding: 0.5em;
+    }
+    .ratingDiv {
+        padding: 0.25em;
+    }
+    .result {
+        width: 350px;
+        height: 225px;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .headerWrap h2 {
+        line-height: 1.2em;
+    }
+    .gameBtn {
+        margin: 0.1em;
+        padding: 0.3em;
+    }
+
+    .result {
+        width:400px;
+        height: 250px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .result {
+        width:350px;
+        height: 250px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .result {
+        width:300px;
+        height: 225px;
     }
 }

@@ -96,8 +96,11 @@ $(document).on("click", ".gameBtn", function () {
 
             // Create an img tag to display the results
             var gameGif = $("<img>");
+            // Add class
             gameGif.addClass("result")
+            // Add src to diplay still GIF when first loaded
             gameGif.attr("src", results[i].images.fixed_height_still.url);
+            // Add data attributes to later use to make GIF animate
             gameGif.attr("data-state", "still");
             gameGif.attr("data-still", results[i].images.fixed_height_still.url);
             gameGif.attr("data-animate", results[i].images.fixed_height.url);
