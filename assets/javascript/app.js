@@ -75,11 +75,11 @@ $(document).on("click", ".gameBtn", function () {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        // Create a variable to hold the ajax response contents
+        // Create a variable to hold the ajax response data contents
         var results = response.data;
         // Test
-        console.log(results);
-
+        // console.log(results);
+        
         // Create a div to diplay contents to HTML
         var resultsWrap = $("<div>");
         // Add class
@@ -93,7 +93,7 @@ $(document).on("click", ".gameBtn", function () {
             // Create variable to hold results rating and results HTML reference
             var rating = results[i].rating;
             var ratingTag = $("<div class = 'ratingDiv'>").html("Rating: " + rating);
-
+            
             // Create an img tag to display the results
             var gameGif = $("<img>");
             // Add class
@@ -118,14 +118,14 @@ $(document).on("click", ".gameBtn", function () {
 
 // Click function to play / pause the GIF
 $(document).on("click", ".result", function() {
-    // Create var to hold the data state of "clicked" GIF
+    // Create var to hold the data state of this "clicked" GIF
     var state = $(this).attr("data-state");
 
-    // If current state is still when clicked then set to animate
+    // If current state is "still" when clicked then set to "animate"
     if (state === "still") {
         $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
-        // If surrent state is animate when clicked then set to still
+        // If surrent state is "animate" when clicked then set to "still"
     } else {
         $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
