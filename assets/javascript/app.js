@@ -1,3 +1,4 @@
+
 // Create an array of items to act as the original GIF buttons group.
 var topics = [
     "Apex Legends",
@@ -7,17 +8,17 @@ var topics = [
     "Crash Bandicoot",
     "Destiny",
     "Diablo II",
-    "Division",
-    "Doom",
+    "Donkey Kong Country",
     "Fallout",
-    "Farcry",
-    "Gear of War",
-    "Guitar Hero",
+    "Forza Motorsports",
+    "Gears of War",
+    "Guitar Hero III",
     "Halo 2",
+    "Mortal Kombat",
     "Overwatch",
     "Pokemon: Yellow",
     "Portal 2",
-    "Starcraft",
+    "Super Mario 64",
     "The Elder Scrolls V: Skyrim",
     "World of Warcraft",
 ]
@@ -28,9 +29,8 @@ var renderButtons = () => {
     for (var i = 0; i < topics.length; i++) {
         // Dynamically generate buttons for each game in the "topics" array.
         var topicsBtn = $("<button>");
-        // Add class.
+        // Add class & data attribute
         topicsBtn.addClass("gameBtn");
-        // Add attribute.
         topicsBtn.attr("data-title", topics[i]);
         // Diplay the button text with the value of topics[i]
         topicsBtn.html(topics[i]);
@@ -38,7 +38,31 @@ var renderButtons = () => {
         $("#gamesBtns").append(topicsBtn);
     }
 }
+// Funtion to add game button by taking the value of users input when submit is clicked
+var addGame = () => {
+    $("#addGameBtn").on("click", function(event) {
+        event.preventDefault();
+        var isDuplicate = false;
+        if(topics.indexOf($("#addGameInput").val()) !== -1) {
+            isDuplicate = true;
+        }
+        if($("#addGameInput").val() !== "" && isDuplicate === false) {
+            var addedGame = $("#addGameInput").val().toLowerCase();
+            topics.push(addedGame);
+            var addedBtn = $("<button>").html(addedGame);
+            addedBtn.attr("data-title", addedGame);
+            addedBtn.addClass("addedBtn");
+            addedBtn.addClass("gameBtn");
+            $("#gamesBtns").append(addedBtn);
+        }
+        $("#addGameInput").val("");
+    })
+}
+
+// Calls
+// ========================
 renderButtons();
+addGame();
 
 // Click function to grab 10 static gif images from the API and display them to HTML.
 $(document).on("click", ".gameBtn", function () {
@@ -78,11 +102,29 @@ $(document).on("click", ".gameBtn", function () {
             gameGif.attr("data-still", results[i].images.fixed_height_still.url);
             gameGif.attr("data-animate", results[i].images.fixed_height.url);
             
+            // Prepend gif and rating to "selectedWrap"
             selectedWrap.prepend(gameGif);
             selectedWrap.prepend(ratingTag);
-
+            // Prepend "selectedWrap" to "resultsWrap"
             resultsWrap.prepend(selectedWrap);
         }
+        // Send "resultsWrap" containing entire gif to HTML
         $("#gameGif").prepend(resultsWrap);
-    })
-})
+    });
+});
+
+// Click function to play / pause the GIF
+$(document).on("click", ".result", function() {
+    // Create var to hold the data state of "clicked" GIF
+    var state = $(this).attr("data-state");
+
+    // If current state is still when clicked then set to animate
+    if (state === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+        // If surrent state is animate when clicked then set to still
+    } else {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+});

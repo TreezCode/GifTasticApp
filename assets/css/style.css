@@ -8,7 +8,7 @@ body {
 /* Main Container */
 /* ===================================================== */
 .container {
-    max-width: 960px;
+    max-width: 100%;
     margin: 1em auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -57,28 +57,30 @@ body {
 }
 
 #addGameInput {
+    font-family: 'Righteous', cursive;
     text-align: center;
+    background: #dbffde;
     padding: 0.5em;
-    margin-bottom: 1em;
     box-shadow: 0 0 7px 3px #333 inset;
     border: none;
 }
 
-#addGameSubmit {
+#addGameBtn {
     font-family: 'Righteous', cursive;
     font-size: 1em;
     text-shadow: 0 0 10px #00f514;
     letter-spacing: 2px;
     background: rgb(0, 0, 0);
-    color: white;
+    color:  #a3ffab;
     padding: 0.75em;
+    margin-top: 1em;
     border: none;
     border-radius: 20px;
     box-shadow: 0 0 10px -2px #00f514;
     transition: all 0.25s;
 }
 
-#addGameSubmit:hover {
+#addGameBtn:hover {
     cursor: pointer;
     transform: scale(1.05);
     box-shadow: 0 0 25px -5px #00f514;
@@ -94,7 +96,7 @@ body {
 .gameBtn {
     font-family: 'Karla', sans-serif;
     font-size: 0.9em;
-    color: white;
+    color:  #dbffde;
     background: black;
     margin: 0.25em;
     padding: 0.5em;
@@ -105,14 +107,18 @@ body {
 }
 
 .gameBtn:hover {
-    cursor: pointer;
     transform: scale(1.04);
     background: #00ff15af;
     color: black;
+    cursor: pointer;
 }
 
 /* Game Gifs Styles */
 /* ===================================================== */
+.selectedWrap {
+    margin: auto;
+}
+
 #gameGif {
     padding: 0.5em 0;
 }
@@ -133,64 +139,10 @@ body {
 .ratingDiv {
     font-family: 'Karla', sans-serif;
     text-shadow: 0 0 10px #00f514;
+    color: #c2ffc7;
     text-align: center;
     padding: 0.5em;
 }
-
-/* Animated Gradient Background */
-/* ===================================================== */
-/* body {
-    width: 100wh;
-    height: 90vh;
-    color: #fff;
-    background: linear-gradient(-45deg, rgb(53, 53, 53), rgb(0, 0, 0));
-    background-size: 400% 400%;
-    -webkit-animation: Gradient 24s ease infinite;
-    -moz-animation: Gradient 24s ease infinite;
-    animation: Gradient 24s ease infinite;
-}
-
-@keyframes Gradient {
-    0% {
-        background-position: 0% 50%
-    }
-
-    50% {
-        background-position: 100% 50%
-    }
-
-    100% {
-        background-position: 0% 50%
-    }
-}
-
-@-webkit-keyframes Gradient {
-    0% {
-        background-position: 0% 50%
-    }
-
-    50% {
-        background-position: 100% 50%
-    }
-
-    100% {
-        background-position: 0% 50%
-    }
-}
-
-@-moz-keyframes Gradient {
-    0% {
-        background-position: 0% 50%
-    }
-
-    50% {
-        background-position: 100% 50%
-    }
-
-    100% {
-        background-position: 0% 50%
-    }
-} */
 
 /* Neon Glow Header */
 /* ===================================================== */
