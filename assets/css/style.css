@@ -3,6 +3,7 @@ body {
     background: url("../images/xboxBg.jpg") no-repeat center center fixed;
     background-size: cover;
     color: white;
+    height: 100vh;
 }
 
 /* Main Container */
@@ -180,9 +181,6 @@ body {
 /* Meadia Queries */
 /* ===================================================== */
 @media screen and (max-width: 980px) {
-    body {
-        height: 100vh;
-    }
     .container {
         margin: 0.5em auto;
         grid-gap: 0.5em;
