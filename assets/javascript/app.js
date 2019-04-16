@@ -1,4 +1,5 @@
-
+// Globals
+// =======================================================================
 // Create an array of items to act as the original GIF buttons group.
 var topics = [
     "Apex Legends",
@@ -25,27 +26,27 @@ var topics = [
 
 // Function to create buttons in HTML for each item in the "topics" array
 var renderButtons = () => {
-    // Iterate through array. 
+    // Iterate through array and dynamically generate buttons for each game in the "topics" array.
     for (var i = 0; i < topics.length; i++) {
-        // Dynamically generate buttons for each game in the "topics" array.
         var topicsBtn = $("<button>");
-        // Add class & data attribute
+        // Add class & data attribute and diplay the button text as the value of topics[i]
         topicsBtn.addClass("gameBtn");
         topicsBtn.attr("data-title", topics[i]);
-        // Diplay the button text with the value of topics[i]
         topicsBtn.html(topics[i]);
         // Render buttons to html by appending to #gameBtns.
         $("#gameBtns").append(topicsBtn);
     }
 }
-// Function to add game button by taking the value of users input when submit is clicked
+// Function to allow user to add game button by taking the value of input when submit is clicked
 var addGame = () => {
     $("#addGameBtn").on("click", function(event) {
         event.preventDefault();
+        // Prevent duplicate buttons
         var isDuplicate = false;
         if(topics.indexOf($("#addGameInput").val()) !== -1) {
             isDuplicate = true;
         }
+        // If no duplicates then create new button and push to topics array
         if($("#addGameInput").val() !== "" && isDuplicate === false) {
             var addedGame = $("#addGameInput").val().toLowerCase();
             topics.push(addedGame);
@@ -60,10 +61,12 @@ var addGame = () => {
 }
 
 // Calls
-// ========================
+// =======================================================================
 renderButtons();
 addGame();
 
+// Main Logic Click Functions
+// =======================================================================
 // Click function to grab 10 static gif images from the API and display them to HTML.
 $(document).on("click", ".gameBtn", function () {
     // Construct our GIPHY API URL to access content on click
@@ -80,13 +83,13 @@ $(document).on("click", ".gameBtn", function () {
         // Test
         // console.log(results);
         
-        // Create a div to diplay contents to HTML
+        // Create a div to diplay entire contents to HTML and add a class
         var resultsWrap = $("<div>");
-        // Add class
         resultsWrap.addClass("resultsWrap");
 
         // Iterate through the results
         for (var i = 0; i < results.length; i++) {
+            // Create div to hold the results and rating contents
             var selectedWrap = $("<div>");
             selectedWrap.addClass("selectedWrap");
 
@@ -95,11 +98,12 @@ $(document).on("click", ".gameBtn", function () {
             var ratingTag = $("<div class = 'ratingDiv'>").html("Rating: " + rating);
             
             // Create an img tag to display the results
-            var gameGif = $("<img>");
             // Add class
+            var gameGif = $("<img>");
             gameGif.addClass("result")
-            // Add src to diplay still GIF when first loaded
+            // Add src and alt to diplay still GIF when first loaded
             gameGif.attr("src", results[i].images.fixed_height_still.url);
+            gameGif.attr("alt", results[i].title)
             // Add data attributes to later use to make GIF animate
             gameGif.attr("data-state", "still");
             gameGif.attr("data-still", results[i].images.fixed_height_still.url);
@@ -108,6 +112,7 @@ $(document).on("click", ".gameBtn", function () {
             // Prepend gif and rating to "selectedWrap"
             selectedWrap.prepend(gameGif);
             selectedWrap.prepend(ratingTag);
+
             // Prepend "selectedWrap" to "resultsWrap"
             resultsWrap.prepend(selectedWrap);
         }
@@ -125,7 +130,7 @@ $(document).on("click", ".result", function() {
     if (state === "still") {
         $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
-        // If surrent state is "animate" when clicked then set to "still"
+        // If current state is "animate" when clicked then set to "still"
     } else {
         $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
