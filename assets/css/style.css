@@ -180,6 +180,9 @@ body {
 /* Meadia Queries */
 /* ===================================================== */
 @media screen and (max-width: 980px) {
+    body {
+        height: 100vh;
+    }
     .container {
         margin: 0.5em auto;
         grid-gap: 0.5em;
